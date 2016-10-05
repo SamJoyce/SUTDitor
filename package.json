@@ -1,0 +1,24 @@
+{
+  "name": "sutditor",
+  "version": "1.0.0",
+  "description": "github-like collab design tool",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stanleynguyen/SUTDitor.git"
+  },
+  "keywords": [
+    "collaborative",
+    "design",
+    "github"
+  ],
+  "author": "SUTD-urop",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stanleynguyen/SUTDitor/issues"
+  },
+  "homepage": "https://github.com/stanleynguyen/SUTDitor#readme"
+}
