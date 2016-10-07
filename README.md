@@ -21,5 +21,5 @@ Open that branch on Github and make a pull request to the master branch
 **Any new Task Assignment please create a new Issue on this repo**
 
 ###Checklist
-- [] static views of the discussed pages #1
-- [] Schemas and Database Design #2
+- [ ] static views of the discussed pages #1
+- [ ] Schemas and Database Design #2
