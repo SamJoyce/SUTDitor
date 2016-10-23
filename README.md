@@ -34,4 +34,4 @@ Open that branch on Github and make a pull request to the master branch
 
 ###Checklist
 - [ ] static views of the discussed pages #1
-- [ ] Schemas and Database Design #2
+- [x] Schemas and Database Design #2
