@@ -1,1 +1,8 @@
-env.bash
+//environment config file
+.env
+
+//debug log
+npm-debug.log
+
+//folders
+node_modules

@@ -2,6 +2,18 @@
 
 GitHub-like Collaborative Design Tool for illustrators.
 
+###Getting Started
+
+*make sure you have node version 6.9.1
+
+```
+git clone git@github.com:SamJoyce/SUTDitor.git
+cd SUTDitor/
+npm run dev
+```
+
+and happy coding!
+
 ###How to contribute
 
 Create a new branch
