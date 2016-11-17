@@ -60,6 +60,21 @@
 
   <body>
 
+<p>current selected node: <label id="selectedNode">haha</label></p>
+
+
+<!-- for local file upload -->
+<!-- <label for="fileinput">File input</label>
+<input type="file" id="fileinput"> -->
+
+<form class="form-inline">
+  <div class="form-group">
+    <label for="imageURLinput" class="sr-only">Image URL</label>
+    <input type="text" class="form-control" id="imageURLinput" placeholder="Enter image URL">
+  </div>
+  <button type="submit" class="btn btn-default">Upload</button>
+</form>
+
 <!-- load the d3.js library -->
 <script src="http://d3js.org/d3.v3.min.js"></script>
 
@@ -80,13 +95,15 @@ var treeData = [
           },
           {
             "name": "Daughter of A",
-            "parent": "Level 2: A"
+            "parent": "Level 2: A",
+            "icon": "http://www.bigbiz.com/bigbiz/icons/ultimate/Comic/Comic122.gif"
           }
         ]
       },
       {
         "name": "Level 2: B",
-        "parent": "Top Level"
+        "parent": "Top Level",
+        "icon": "http://www.bigbiz.com/bigbiz/icons/ultimate/Comic/Comic114.gif"
       }
     ]
   }
@@ -159,6 +176,13 @@ function update(source) {
 	  .attr("r", 1e-6)
 	  .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
 
+  nodeEnter.append("image")
+      .attr("xlink:href", function(d) { return d.icon; })
+      .attr("x", "10px")
+      .attr("y", "10px")
+      .attr("width", "50px")
+      .attr("height", "50px");
+
   nodeEnter.append("text")
 	  .attr("x", function(d) { return d.children || d._children ? -13 : 13; })
 	  .attr("dy", ".35em")
@@ -225,6 +249,17 @@ function update(source) {
 
 // Toggle children on click.
 function click(d) {
+
+  document.getElementById('selectedNode').innerHTML = d.name;
+
+  d3.selectAll(".selected")
+    .classed('selected',false)
+    .attr("fill", "black");
+
+ d3.select(this)
+    .classed('selected',true)
+    .attr("fill", "red");
+
   if (d.children) {
 	d._children = d.children;
 	d.children = null;
