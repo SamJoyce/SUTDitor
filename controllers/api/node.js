@@ -34,6 +34,10 @@ router.post('/', (req, res) => {
           children: {}
         }
       });
+      tree.save( (err) => {
+        if (err) return res.status(500).send('Server Error!');
+        res.status(200).send('Success!');
+      });
     });
   });
 });
