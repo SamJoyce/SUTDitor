@@ -3,10 +3,9 @@ const express = require('express');
 const app = express();
 
 app.use(express.static(__dirname + '/views/public'));
+app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => {
-  res.sendfile('index.html');
-});
+app.use(require('./controllers'));
 
 app.listen(process.env.PORT || 8080, (err) => {
   if (err) throw err;
