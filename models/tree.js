@@ -4,4 +4,4 @@ let TreeSchema = new mongoose.Schema({
   Object
 });
 
-module.exports = mongoose.models('Tree', TreeSchema);
+module.exports = mongoose.model('Tree', TreeSchema);

@@ -1,7 +1,7 @@
 const router = require('express').Router(); //eslint-disable-line
 
-const Tree = require(__dirname + 'models/tree');
-const Node = require(__dirname + 'models/node');
+const Tree = require('../../models/tree');
+const Node = require('../../models/node');
 
 router.get('/', (req, res) => {
   Tree.find({
@@ -42,3 +42,5 @@ router.post('/', (req, res) => {
     });
   });
 });
+
+module.exports = router;

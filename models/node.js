@@ -7,4 +7,4 @@ let NodeSchema = new mongoose.Schema({
   parents: [ mongoose.Schema.Types.ObjectId ],
 });
 
-module.exports = mongoose.models('Node', NodeSchema);
+module.exports = mongoose.model('Node', NodeSchema);

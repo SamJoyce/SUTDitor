@@ -1,7 +1,7 @@
 const router = require('express').Router(); //eslint-disable-line
 
-const Node = require(__dirname + 'models/node');
-const Tree = require(__dirname + 'models/tree');
+const Node = require('../../models/node');
+const Tree = require('../../models/tree');
 
 router.get('/', (req, res) => {
   Node.findById(req.body.id, (err, doc) => {
