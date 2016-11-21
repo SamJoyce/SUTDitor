@@ -1,4 +1,7 @@
 const express = require('express');
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://stanley:stanley123@ds157187.mlab.com:57187/sutditor');
 
 const app = express();
 
