@@ -22,9 +22,10 @@ Create a new branch
 git checkout -b <branch-name>
 ```
 
-Make all your commits and push to the remote branch
+Run tests, make all your commits, and push to the remote branch
 
 ```
+npm run test
 git add -A && git commit -m "Description of the commit"
 ```
 

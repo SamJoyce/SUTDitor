@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": "sudo ./node_modules/.bin/nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:grammar": "./node_modules/.bin/eslint .; exit 0;",
+    "test": "npm run test:grammar"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,10 @@
     "mongoose": "^4.6.4"
   },
   "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "eslint": "^3.10.2",
+    "eslint-plugin-babel": "^4.0.0",
+    "eslint-plugin-react": "^6.7.1",
     "nodemon": "^1.11.0"
   }
 }
