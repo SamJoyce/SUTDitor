@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
     <title>Tree Example</title>
 
     <style>
@@ -253,6 +255,35 @@ function update(source) {
 
 // Toggle children on click.
 function click(d) {
+
+var name = "firstParent";
+var currDate = new Date().toLocaleString();
+var src = "http://www.bigbiz.com/bigbiz/icons/ultimate/Comic/Comic122.gif";
+
+$.ajax({
+  method: "POST",
+  url: "/api/tree",
+  data: { name: name, date: currDate, src: src }
+})
+  .done(function( msg ) {
+    console.log("saved success" + msg);
+    alert( "Data Saved: " + msg );
+  });
+
+// $.ajax({
+//       type: 'POST',
+//       data: { name: name, date: currDate, src: src },
+//       //contentType: 'text',
+//       url: '/api/tree',
+//       success: function(data) {
+//          console.log("saved success" + data);
+//       }
+//     });
+
+// var request = new XMLHttpRequest();
+// request.open('POST', '/api/tree', true);
+// request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+// request.send(data);
 
   document.getElementById('selectedNode').innerHTML = d.name;
 
