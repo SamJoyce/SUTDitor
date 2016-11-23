@@ -5,7 +5,7 @@ const Node = require('../../models/node');
 
 router.get('/', (req, res) => {
   Tree.find({
-    _id: req.body.id
+    _id: req.query.id
   }, (err, docs) => {
     if (err) return res.status(500).send('Server Error!');
     res.json(docs);

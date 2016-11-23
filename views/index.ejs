@@ -86,6 +86,20 @@
 
 <script>
 
+$.ajax({
+ method: "GET",
+ url: "/api/tree",
+ data: { id: "5835652578ef6d7a10b420fe" }
+})
+ .done(function( msg ) {
+   console.log("data retrieved" + msg);
+   console.log(JSON.stringify(msg));
+   //treeData = msg;
+ })
+ .fail(function(e) {
+   console.log(e);
+ });
+
 var treeData = [
   {
     "name": "Top Parent",
