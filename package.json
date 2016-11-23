@@ -9,7 +9,10 @@
     "lint": "./node_modules/.bin/eslint .; exit 0;",
     "test": "exit 0;"
   },
-  "pre-commit": ["test", "lint"],
+  "pre-commit": [
+    "test",
+    "lint"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/stanleynguyen/SUTDitor.git"
@@ -36,6 +39,7 @@
     "eslint": "^3.10.2",
     "eslint-plugin-babel": "^4.0.0",
     "eslint-plugin-react": "^6.7.1",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "pre-commit": "^1.1.3"
   }
 }
