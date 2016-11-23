@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 mongoose.connect('mongodb://stanley:stanley123@ds157187.mlab.com:57187/sutditor');
 
@@ -7,6 +8,8 @@ const app = express();
 
 app.use(express.static(__dirname + '/views/public'));
 app.set('view engine', 'ejs');
+
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(require('./controllers'));
 

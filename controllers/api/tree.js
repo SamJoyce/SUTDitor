@@ -29,7 +29,7 @@ router.post('/', (req, res) => {
   newNode.save( (err, node) => {
     if (err) return res.status(500).send('Server Error!');
 
-    let newTree = new ({
+    let newTree = new Tree ({
       [node._id]: {
         image: node.src,
         children: {}

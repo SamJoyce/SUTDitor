@@ -6,9 +6,10 @@
   "scripts": {
     "start": "node server.js",
     "dev": "sudo ./node_modules/.bin/nodemon server.js",
-    "test:grammar": "./node_modules/.bin/eslint .; exit 0;",
-    "test": "npm run test:grammar"
+    "lint": "./node_modules/.bin/eslint .; exit 0;",
+    "test": "exit 0;"
   },
+  "pre-commit": ["test", "lint"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/stanleynguyen/SUTDitor.git"
@@ -25,6 +26,7 @@
   },
   "homepage": "https://github.com/stanleynguyen/SUTDitor#readme",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "ejs": "^2.5.2",
     "express": "^4.14.0",
     "mongoose": "^4.6.4"
