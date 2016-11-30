@@ -1,7 +1,8 @@
 const router = require('express').Router(); //eslint-disable-line
+const mongoClient = require('mongodb').MongoClient;
+const ObjectId = require('mongodb').ObjectId;
 
 const Node = require('../../models/node');
-const Tree = require('../../models/tree');
 
 router.get('/', (req, res) => {
   Node.find({
@@ -24,21 +25,28 @@ router.post('/', (req, res) => {
 
   newNode.save( (err, node) => {
     if (err) return res.status(500).send('Server Error!');
-    Tree.findById(sourceTree, (err, tree) => {
+    mongoClient.connect('mongodb://stanley:stanley123@ds157187.mlab.com:57187/sutditor', (err, db) => {
       if (err) return res.status(500).send('Server Error!');
-      let childrenArray = tree[parents[0]].children;
-      parents.forEach( (p, index) => {
-        if ( index > 0 ) childrenArray = childrenArray[p].children;
-      });
-      childrenArray.push({
-        [node._id]: {
-          image: node.src,
-          children: {}
-        }
-      });
-      tree.save( (err) => {
+      db.collection('trees').find(ObjectId(sourceTree)).toArray( (err, tree) => {
         if (err) return res.status(500).send('Server Error!');
-        res.status(200).send('Success!');
+        tree = tree[0];
+        let childrenObj = tree[parents[0]];
+        if ( childrenObj.children ) {
+          childrenObj = childrenObj.children;
+          parents.forEach( (item, index) => {
+            if ( index === parents.length - 1 ) childrenObj = childrenObj[item];
+            else if ( index > 0 ) childrenObj = childrenObj[item].children;
+          });
+          if ( childrenObj.children ) {
+            childrenObj.children[node._id] = { img: node.src };
+          } else {
+            childrenObj.children = { [node._id]: {img: node.src} };
+          }
+        } else {
+          childrenObj.children = { [node._id]: {img: node.src} };
+        }
+
+        db.collection('trees').save(tree);
       });
     });
   });

@@ -86,6 +86,23 @@
 
 <script>
 
+var name = "testNode";
+var currDate = new Date().toLocaleString();
+var src = "http://www.bigbiz.com/bigbiz/icons/ultimate/Comic/Comic114.gif";
+var parents = ["58368a0c4eb1550cbb15962b", "583ec7d6b6a72b06b72c3098"];
+var sourceTree = "58368a0c4eb1550cbb15962c";
+$.ajax({
+  method: "POST",
+  url: "/api/node",
+  data: { name: name, date: currDate, src: src, parents: parents, sourceTree: sourceTree }
+})
+  .done(function( msg ) {
+    console.log("saved success" + msg);
+    alert( "Data Saved: " + msg );
+  })
+  .fail(function(e) {
+    console.log(e);
+  });
 $.ajax({
  method: "GET",
  url: "/api/tree",

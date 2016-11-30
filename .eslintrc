@@ -22,5 +22,10 @@
             "error",
             "always"
         ]
+    },
+    "globals": {
+        "module": true,
+        "__dirname": true,
+        "require": true
     }
 }
