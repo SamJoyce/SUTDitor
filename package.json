@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "sudo ./node_modules/.bin/nodemon server.js",
-    "lint": "./node_modules/.bin/eslint .; exit 0;",
+    "lint": "./node_modules/.bin/eslint .",
     "test": "exit 0;"
   },
   "pre-commit": [
